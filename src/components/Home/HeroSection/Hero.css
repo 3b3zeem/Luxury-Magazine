@@ -1,0 +1,16 @@
+.custom-dots {
+  bottom: 30px;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-dots li {
+  margin: 0 5px;
+}
+
+.custom-dots li.slick-active div {
+  background-color: #B89B5E !important;
+  opacity: 1 !important;
+  transform: scale(1.2);
+}
