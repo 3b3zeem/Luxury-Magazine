@@ -5,8 +5,10 @@ import { motion } from "framer-motion";
 import hero from "../../../assets/Images/Hero.jpg";
 import logo from "../../../assets/Images/logo.png";
 import "./Hero.css";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
+  const navigate = useNavigate()
   const settings = {
     dots: true,
     arrows: false,
@@ -40,9 +42,13 @@ const Hero = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.7, delay: 0.2 }}
-                  className="text-xl md:text-2xl font-semibold text-[#FFFFFF] leading-[135%] max-w-3xl"
+                  className="text-xl md:text-2xl font-semibold text-[#FFFFFF] leading-[140%] max-w-3xl text-center"
                 >
                   101 Leaders — Where Your Legacy Begins.
+                  <p className="whitespace-pre-line">
+                    Because True Leaders Don’t Follow Trends — They Set Them
+                    {"\n"}The Spotlight Is Reserved for Those Who Dare to Lead.
+                  </p>
                 </motion.h1>
                 <motion.div
                   initial={{ width: 0 }}
@@ -55,6 +61,7 @@ const Hero = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.7, delay: 0.6 }}
+                  onClick={() => navigate("/contact")}
                   className="mt-4 px-6 py-2 border border-[#B89B5E] text-[#B89B5E] hover:bg-[#B89B5E] hover:text-black transition cursor-pointer"
                 >
                   Be the Next to Inspire

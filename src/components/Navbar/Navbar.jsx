@@ -12,7 +12,7 @@ const Navbar = () => {
       <motion.nav
         className="text-white flex flex-col sticky top-0 z-200"
         style={{
-          backgroundImage: `url(${bgNav})`,
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.5)), url(${bgNav})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -21,13 +21,13 @@ const Navbar = () => {
           {/* Logo */}
           <motion.div className="flex flex-col items-center">
             <div className="relative flex items-center justify-center mb-1">
-              <div className="w-16 h-16 rounded-full border-[1.5px] border-[#B89B5E] flex items-center justify-center">
-                <div className="w-13 h-13 rounded-full border-[1.5px] border-[#B89B5E] flex items-center justify-center">
+              <div className="w-18 h-18 rounded-full border-[1.5px] border-[#B89B5E] flex items-center justify-center">
+                <div className="w-15 h-15 rounded-full border-[1.5px] border-[#B89B5E] flex items-center justify-center">
                   <NavLink to={"/"}>
                     <img
                       src={logo}
                       alt="Logo"
-                      className="w-10 h-10 object-cover rounded-full"
+                      className="w-13 h-13 object-cover rounded-full"
                     />
                   </NavLink>
                 </div>
@@ -47,7 +47,7 @@ const Navbar = () => {
                   to={link.to}
                   onClick={() => setIsOpen(false)}
                   className={({ isActive }) =>
-                    `text-sm font-semibold uppercase transition-colors ${
+                    `text-sm font-bold uppercase transition-colors ${
                       isActive
                         ? "text-[#B89B5E]"
                         : "text-white hover:text-[#B89B5E]"
