@@ -3,14 +3,13 @@ import React from "react";
 import footerBorder from "../../assets/Images/topFooter.png";
 import footerRight from "../../assets/Images/rightFooter.png";
 import bottomFooter from "../../assets/Images/bottomFooter.png";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
     <footer className="text-[#FFFFFF] pt-12 pb-6 px-4 relative">
       {/* Top Border Image */}
-      <div
-        className="absolute top-0 left-0 w-full"
-      >
+      <div className="absolute top-0 left-0 w-full">
         <img
           src={footerBorder}
           alt="Footer Border"
@@ -19,10 +18,11 @@ const Footer = () => {
       </div>
       {/* Footer Content */}
       <div className="flex flex-col justify-between items-center gap-8 md:gap-15">
-        <div
-          className="text-lg font-normal mb-4 md:mb-0"
-        >
-          Powered by <span className="text-[#B89B5E]">Empire</span>
+        <div className="text-lg font-normal mb-4 md:mb-0">
+          Powered by{" "}
+          <Link to={"https://empirekuwait.com/"} className="text-[#B89B5E]">
+            Empire
+          </Link>
         </div>
         <div
           initial={{ opacity: 0 }}
