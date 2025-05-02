@@ -10,7 +10,7 @@ const Navbar = () => {
   return (
     <React.Fragment>
       <motion.nav
-        className="text-white flex flex-col"
+        className="text-white flex flex-col sticky top-0 z-200"
         style={{
           backgroundImage: `url(${bgNav})`,
           backgroundSize: "cover",
@@ -37,7 +37,7 @@ const Navbar = () => {
 
           {/* Desktop Links */}
           <div className="hidden md:flex space-x-6 items-center">
-              {/* { label: "LEADERS", to: "/leaders" }, */}
+            {/* { label: "LEADERS", to: "/leaders" }, */}
             {[
               { label: "ABOUT US", to: "/about" },
               { label: "CONNECT US", to: "/contact" },
@@ -67,7 +67,7 @@ const Navbar = () => {
               className="focus:outline-none cursor-pointer"
             >
               <svg
-                className="w-6 h-6"
+                className="w-9 h-9"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -87,22 +87,28 @@ const Navbar = () => {
           {/* Mobile Menu */}
           <motion.div
             initial={{ height: 0, opacity: 0 }}
-            animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden absolute top-27 left-0 right-0 bg-black overflow-hidden z-100"
+            animate={{
+              height: isOpen ? "auto" : 0,
+              opacity: isOpen ? 1 : 0,
+            }}
+            transition={{
+              duration: 0.4,
+              ease: "easeInOut",
+              opacity: { delay: 0.1 },
+            }}
+            className="md:hidden absolute top-full left-0 right-0 shadow-xl overflow-hidden z-[100]"
           >
-            <div className="flex flex-col items-center py-4 space-y-4">
-                {/* { label: "LEADERS", to: "/leaders" }, */}
+            <div className="flex flex-col items-center py-6 space-y-6 bg-black/90 ">
               {[
                 { label: "ABOUT US", to: "/about" },
                 { label: "CONNECT US", to: "/contact" },
               ].map((link) => (
-                <motion.div key={link.label} whileHover={{ scale: 1.1 }}>
+                <motion.div key={link.label} whileHover={{ scale: 1.05 }}>
                   <NavLink
                     to={link.to}
                     onClick={() => setIsOpen(false)}
                     className={({ isActive }) =>
-                      `text-sm font-semibold uppercase transition-colors ${
+                      `text-base font-semibold uppercase transition-colors ${
                         isActive
                           ? "text-[#B89B5E]"
                           : "text-white hover:text-[#B89B5E]"
