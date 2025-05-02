@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import linkedIn from "../../assets/Images/Links/linkedIn.png";
 import instagram from "../../assets/Images/Links/instagram.png";
@@ -8,6 +8,9 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Contact = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="flex flex-col items-center py-5 px-4 md:px-8 lg:px-16 text-center text-white min-h-screen">
       <div className="flex flex-col items-center w-full max-w-[1240px] py-5">
@@ -61,9 +64,7 @@ const Contact = () => {
               ></textarea>
             </div>
 
-            <button
-              className="w-fit flex items-center gap-2 px-4 py-2 text-sm md:px-6 md:py-3 md:text-base border border-[#B89B5E] text-[#B89B5E] hover:bg-[#B89B5E] hover:text-black transition cursor-pointer mt-5"
-            >
+            <button className="w-fit flex items-center gap-2 px-4 py-2 text-sm md:px-6 md:py-3 md:text-base border border-[#B89B5E] text-[#B89B5E] hover:bg-[#B89B5E] hover:text-black transition cursor-pointer mt-5">
               Submit
               <ArrowRight />
             </button>
@@ -80,17 +81,13 @@ const Contact = () => {
               <span className="text-[#B89B5E] font-semibold text-lg md:text-xl">
                 Email Address:
               </span>
-              <a href="mailto:info@101-leaders.com">
-                info@101-leaders.com
-              </a>
+              <a href="mailto:info@101-leaders.com">info@101-leaders.com</a>
             </p>
             <p className="flex gap-3 items-center">
               <span className="text-[#B89B5E] font-semibold text-lg md:text-xl">
                 Contact:
               </span>
-              <a href="tel:+96560808876">
-                +96560808876
-              </a>
+              <a href="tel:+96560808876">+96560808876</a>
             </p>
           </div>
 
