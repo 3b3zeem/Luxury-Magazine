@@ -7,8 +7,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Toaster } from "react-hot-toast";
 
+// git push origin main; git push personal main
 function App() {
-
   return (
     <React.Fragment>
       <Up_top />
