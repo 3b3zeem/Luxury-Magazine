@@ -17,7 +17,7 @@ export default function Loader() {
         size="40"
         bg-opacity="0.1"
         speed="1.75"
-        color="#1e70d0"
+        color="#B89B5E"
       ></l-hourglass>
     </div>
   );
