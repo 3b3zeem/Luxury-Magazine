@@ -37,8 +37,8 @@ const Navbar = () => {
 
           {/* Desktop Links */}
           <div className="hidden md:flex space-x-6 items-center">
+              {/* { label: "LEADERS", to: "/leaders" }, */}
             {[
-              { label: "LEADERS", to: "/leaders" },
               { label: "ABOUT US", to: "/about" },
               { label: "CONNECT US", to: "/contact" },
             ].map((link) => (
@@ -92,8 +92,8 @@ const Navbar = () => {
             className="md:hidden absolute top-27 left-0 right-0 bg-black overflow-hidden z-100"
           >
             <div className="flex flex-col items-center py-4 space-y-4">
+                {/* { label: "LEADERS", to: "/leaders" }, */}
               {[
-                { label: "LEADERS", to: "/leaders" },
                 { label: "ABOUT US", to: "/about" },
                 { label: "CONNECT US", to: "/contact" },
               ].map((link) => (
