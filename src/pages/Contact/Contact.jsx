@@ -92,18 +92,38 @@ const Contact = () => {
           </div>
 
           <div className="flex gap-3 mt-4">
-            <Link to="">
-              <img src={linkedIn} className="w-8 h-8" alt="" />
-            </Link>
-            <Link to="">
-              <img src={twitter} className="w-8 h-8" alt="" />
-            </Link>
-            <Link to="">
-              <img src={youTube} className="w-8 h-8" alt="" />
-            </Link>
-            <Link to="">
-              <img src={instagram} className="w-8 h-8" alt="" />
-            </Link>
+            <a
+              href="https://www.linkedin.com/company/101-leaders/"
+              target="_blank"
+              whileHover={{ scale: 1.2 }}
+              className="inline-block"
+            >
+              <img src={linkedIn} alt="WhatsApp" className="w-8 h-8" />
+            </a>
+            <a
+              href="https://x.com/101_leaders?s=11&t=K2p3dC83uOovALmH0qEI8Q"
+              target="_blank"
+              whileHover={{ scale: 1.2 }}
+              className="inline-block"
+            >
+              <img src={twitter} alt="Twitter" className="w-8 h-8" />
+            </a>
+            <a
+              href="https://youtube.com/@101leaders?si=U1vyfsTAM2kaCGFl"
+              target="_blank"
+              whileHover={{ scale: 1.2 }}
+              className="inline-block"
+            >
+              <img src={youTube} alt="YouTube" className="w-8 h-8" />
+            </a>
+            <a
+              href="https://www.instagram.com/101leaders?igsh=MWp0bGkzMXkzZHZ2Yg=="
+              target="_blank"
+              whileHover={{ scale: 1.2 }}
+              className="inline-block"
+            >
+              <img src={instagram} alt="Instagram" className="w-8 h-8" />
+            </a>
           </div>
         </div>
 
