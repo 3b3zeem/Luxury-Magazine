@@ -153,7 +153,7 @@ const Contact = () => {
         {/* روابط التواصل */}
         <div className="flex flex-col items-start w-full py-10">
           <h2 className="text-[#B89B5E] font-semibold text-lg md:text-xl">
-            Connect Us
+            Contact Us
           </h2>
           <div className="flex flex-col gap-10 text-sm md:text-base my-10">
             <p className="flex gap-3 items-center">

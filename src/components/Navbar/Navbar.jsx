@@ -40,7 +40,7 @@ const Navbar = () => {
             {/* { label: "LEADERS", to: "/leaders" }, */}
             {[
               { label: "ABOUT US", to: "/about" },
-              { label: "CONNECT US", to: "/contact" },
+              { label: "CONTACT US", to: "/contact" },
             ].map((link) => (
               <motion.div key={link.label} whileHover={{ scale: 1.1 }}>
                 <NavLink
@@ -101,7 +101,7 @@ const Navbar = () => {
             <div className="flex flex-col items-center py-6 space-y-6 bg-black/90 ">
               {[
                 { label: "ABOUT US", to: "/about" },
-                { label: "CONNECT US", to: "/contact" },
+                { label: "CONTACT US", to: "/contact" },
               ].map((link) => (
                 <motion.div key={link.label} whileHover={{ scale: 1.05 }}>
                   <NavLink
