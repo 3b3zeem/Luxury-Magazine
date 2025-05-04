@@ -2,8 +2,10 @@ import React from "react";
 import { motion } from "framer-motion";
 
 import videoImg from "../../../assets/Images/video.png";
+import { useNavigate } from "react-router-dom";
 
 const Video = () => {
+  const navigate = useNavigate()
   return (
     <section className="text-center relative">
       <div className="w-full my-10">
@@ -46,6 +48,7 @@ const Video = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.9 }}
+          onClick={() => navigate("/contact")}
           className="px-6 py-2 border border-[#B89B5E] text-[#B89B5E] hover:bg-[#B89B5E] hover:text-black transition cursor-pointer"
         >
           Be the Next to Inspire

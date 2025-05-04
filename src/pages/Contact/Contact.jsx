@@ -97,7 +97,7 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleInputChange}
                   placeholder="Enter your name"
-                  className="w-full p-2 mb-4 bg-transparent border-b border-white text-white placeholder-white focus:outline-none"
+                  className="w-full p-2 mb-4 bg-transparent border-b border-white text-white focus:outline-none placeholder:text-gray-400"
                   disabled={isSubmitting}
                 />
               </div>
@@ -109,7 +109,7 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleInputChange}
                   placeholder="Enter your email"
-                  className="w-full p-2 mb-4 bg-transparent border-b border-white text-white placeholder-white focus:outline-none"
+                  className="w-full p-2 mb-4 bg-transparent border-b border-white text-white placeholder:text-gray-400 focus:outline-none"
                   disabled={isSubmitting}
                 />
               </div>
@@ -121,7 +121,7 @@ const Contact = () => {
                   value={formData.phone}
                   onChange={handleInputChange}
                   placeholder="Enter your phone number"
-                  className="w-full p-2 mb-4 bg-transparent border-b border-white text-white placeholder-white focus:outline-none"
+                  className="w-full p-2 mb-4 bg-transparent border-b border-white text-white placeholder:text-gray-400 focus:outline-none"
                   disabled={isSubmitting}
                 />
               </div>
@@ -133,7 +133,7 @@ const Contact = () => {
                 value={formData.message}
                 onChange={handleInputChange}
                 placeholder="Enter your message"
-                className="w-full p-2 mb-4 bg-transparent border-b border-white text-white placeholder-white focus:outline-none resize-none"
+                className="w-full p-2 mb-4 bg-transparent border-b border-white text-white placeholder:text-gray-400 focus:outline-none resize-none"
                 rows="3"
                 disabled={isSubmitting}
               ></textarea>
