@@ -47,7 +47,7 @@ const Contact = () => {
 
     setIsSubmitting(true);
     try {
-      const res = await fetch("http://localhost:5000/api/contact", {
+      const res = await fetch("https://luxury-contact.vercel.app/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
