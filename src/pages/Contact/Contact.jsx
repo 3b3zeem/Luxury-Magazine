@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from "react";
-import emailjs from "@emailjs/browser";
 import linkedIn from "../../assets/Images/Links/linkedIn.png";
 import instagram from "../../assets/Images/Links/instagram.png";
 import twitter from "../../assets/Images/Links/twitter.png";
 import youTube from "../../assets/Images/Links/youTube.png";
 import { ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 
 const Contact = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
-    emailjs.init(import.meta.env.VITE_EMAILJS_USER_ID);
   }, []);
 
   const [formData, setFormData] = useState({
@@ -28,51 +25,56 @@ const Contact = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!formData.name.trim()) {
+    const { name, email, phone, message } = formData;
+
+    if (!name.trim()) {
       toast.error("Please enter your name");
       return;
     }
-    if (!formData.email.trim()) {
-      toast.error("Please enter your email address");
+    if (!email.trim()) {
+      toast.error("Please enter your email");
       return;
     }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      toast.error("Please enter a valid email address");
+    if (!isValidEmail(email)) {
+      toast.error("Invalid email address");
       return;
     }
 
     setIsSubmitting(true);
     try {
-      const result = await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        {
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone || "Not provided",
-          message: formData.message || "No message provided",
+      const res = await fetch("http://localhost:5000/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-        import.meta.env.VITE_EMAILJS_USER_ID
-      );
+        body: JSON.stringify({ name, email, phone, message }),
+      });
 
-      if (result.text === "OK") {
-        toast.success("Your message has been sent successfully!");
+      if (res.ok) {
+        toast.success("Message sent successfully!");
         setFormData({ name: "", email: "", phone: "", message: "" });
       } else {
-        toast.error("Failed to send message. Please try again.");
+        const err = await res.json();
+        if (err.errors && err.errors.length > 0) {
+          toast.error(err.errors[0].msg || "Something went wrong");
+        } else {
+          toast.error("Something went wrong");
+        }
       }
     } catch (error) {
-      toast.error(error.message || "An error occurred while sending the message.");
+      toast.error(error.message || "Something went wrong");
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <div className="flex flex-col items-center py-5 px-4 md:px-8 lg:px-16 text-center text-white min-h-screen">
+    <div className="flex flex-col items-center py-5 px-4 md:px-8 lg:px-16 text-center text-white min-h-screen bg-black">
       <div className="flex flex-col items-center w-full max-w-[1240px] py-5">
         <span className="text-[#B89B5E] font-semibold text-md md:text-xl">
           Be the Next to Inspire. Share your journey. Shape the future.
@@ -82,12 +84,12 @@ const Contact = () => {
           <div className="h-[2px] bg-[#B89B5E]"></div>
         </div>
 
-        {/* نموذج الإدخال */}
         <form className="w-full py-5" onSubmit={handleSubmit}>
           <div className="flex flex-col text-left text-white">
             <label className="text-sm md:text-lg mb-15">
               Submit Request for Details:
             </label>
+
             <div className="flex flex-col md:flex-row items-start md:items-center justify-baseline gap-20">
               <div>
                 <label>Your Name</label>
@@ -126,6 +128,7 @@ const Contact = () => {
                 />
               </div>
             </div>
+
             <div>
               <label>Message</label>
               <textarea
@@ -150,7 +153,7 @@ const Contact = () => {
           </div>
         </form>
 
-        {/* روابط التواصل */}
+        {/* روابط التواصل كما هي */}
         <div className="flex flex-col items-start w-full py-10">
           <h2 className="text-[#B89B5E] font-semibold text-lg md:text-xl">
             Contact Us
@@ -174,32 +177,24 @@ const Contact = () => {
             <a
               href="https://www.linkedin.com/company/101-leaders/"
               target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block"
             >
               <img src={linkedIn} alt="LinkedIn" className="w-8 h-8" />
             </a>
             <a
               href="https://x.com/101_leaders?s=11&t=K2p3dC83uOovALmH0qEI8Q"
               target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block"
             >
               <img src={twitter} alt="Twitter" className="w-8 h-8" />
             </a>
             <a
               href="https://youtube.com/@101leaders?si=U1vyfsTAM2kaCGFl"
               target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block"
             >
               <img src={youTube} alt="YouTube" className="w-8 h-8" />
             </a>
             <a
               href="https://www.instagram.com/101leaders?igsh=MWp0bGkzMXkzZHZ2Yg=="
               target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block"
             >
               <img src={instagram} alt="Instagram" className="w-8 h-8" />
             </a>
